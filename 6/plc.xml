@@ -1,0 +1,126 @@
+<?xml version='1.0' encoding='utf-8'?>
+<project xmlns="http://www.plcopen.org/xml/tc6_0201" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:ns1="http://www.plcopen.org/xml/tc6_0201">
+  <fileHeader companyName="Desconhecido" productName="Sem nome" productVersion="1" creationDateTime="2025-01-13T10:57:22"/>
+  <contentHeader name="Sem nome" modificationDateTime="2025-03-11T19:04:20">
+    <coordinateInfo>
+      <fbd>
+        <scaling x="8" y="8"/>
+      </fbd>
+      <ld>
+        <scaling x="8" y="8"/>
+      </ld>
+      <sfc>
+        <scaling x="8" y="8"/>
+      </sfc>
+    </coordinateInfo>
+  </contentHeader>
+  <types>
+    <dataTypes/>
+    <pous>
+      <pou name="program0" pouType="program">
+        <interface>
+          <localVars>
+            <variable name="Reset">
+              <type>
+                <BOOL/>
+              </type>
+              <initialValue>
+                <simpleValue value="false"/>
+              </initialValue>
+            </variable>
+          </localVars>
+          <localVars>
+            <variable name="Cnt" address="%QW0.1">
+              <type>
+                <INT/>
+              </type>
+              <initialValue>
+                <simpleValue value="0"/>
+              </initialValue>
+            </variable>
+            <variable name="Cnt2" address="%QW0.2">
+              <type>
+                <INT/>
+              </type>
+              <initialValue>
+                <simpleValue value="0"/>
+              </initialValue>
+            </variable>
+          </localVars>
+          <externalVars constant="true">
+            <variable name="ResetCounterValue2">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+          </externalVars>
+          <outputVars>
+            <variable name="Out">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+            <variable name="Out2">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+          </outputVars>
+          <externalVars constant="true">
+            <variable name="ResetCounterValue">
+              <type>
+                <INT/>
+              </type>
+            </variable>
+          </externalVars>
+        </interface>
+        <body>
+          <ST>
+            <xhtml:p><![CDATA[IF Reset THEN
+  Cnt := ResetCounterValue;
+  Cnt2 := ResetCounterValue2;
+ELSE
+  Cnt := Cnt + 1;
+  Cnt2 := Cnt2;
+  
+END_IF;
+Out := Cnt;
+Out2 := Cnt2;]]></xhtml:p>
+          </ST>
+        </body>
+        <documentation>
+          <xhtml:p><![CDATA[ ]]></xhtml:p>
+        </documentation>
+      </pou>
+    </pous>
+  </types>
+  <instances>
+    <configurations>
+      <configuration name="config">
+        <resource name="resource1">
+          <task name="task0" priority="0" interval="T#100ms">
+            <pouInstance name="instance0" typeName="program0"/>
+          </task>
+        </resource>
+        <globalVars constant="true">
+          <variable name="ResetCounterValue">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="17"/>
+            </initialValue>
+          </variable>
+          <variable name="ResetCounterValue2">
+            <type>
+              <INT/>
+            </type>
+            <initialValue>
+              <simpleValue value="17"/>
+            </initialValue>
+          </variable>
+        </globalVars>
+      </configuration>
+    </configurations>
+  </instances>
+</project>
