@@ -27,6 +27,7 @@ RUN apt-get update && apt-get install -y \
     libsm-dev libgtk2.0-dev \
     libgstreamer-plugins-base1.0-dev \
     libgstreamer1.0-dev \
+    xfce4 \
     && rm -rf /var/lib/apt/lists/*
 
 # Criar diretório Beremiz e clonar repositórios
