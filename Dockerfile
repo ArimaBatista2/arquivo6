@@ -43,13 +43,13 @@ RUN mkdir root/Beremiz && cd root/Beremiz && \
     git clone https://github.com/ArimaBatista2/arquivo6.git
 
 # Compilar matiec
-RUN cd root//Beremiz/matiec && \
+RUN cd root/Beremiz/matiec && \
     autoreconf -fvi && \
     ./configure && \
     make 
 
 # Criar e ativar ambiente virtual Python
-RUN cd root//Beremiz && \
+RUN cd root/Beremiz && \
     python3 -m venv venv && \
     . venv/bin/activate && \
     pip install numpy matplotlib lxml zeroconf cryptography wxPython
