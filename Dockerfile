@@ -28,6 +28,7 @@ RUN apt-get update && apt-get install -y \
     libgstreamer-plugins-base1.0-dev \
     libgstreamer1.0-dev \
     xfce4 \
+    xfce4-goodies \
     && rm -rf /var/lib/apt/lists/*
 
 # Criar diretório Beremiz e clonar repositórios
