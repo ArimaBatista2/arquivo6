@@ -32,7 +32,7 @@ RUN apt-get update && apt-get install -y \
     && rm -rf /var/lib/apt/lists/*
 
 # Criar diretório Beremiz e clonar repositórios
-RUN mkdir /Beremiz && cd /Beremiz && \
+RUN mkdir root/Beremiz && cd root/Beremiz && \
     git clone https://github.com/beremiz/beremiz.git && \
     git clone https://github.com/beremiz/matiec.git && \
     git clone https://github.com/beremiz/Modbus.git && \
